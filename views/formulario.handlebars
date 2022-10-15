@@ -1,0 +1,26 @@
+<section style="min-height: 89vh; display:flex; flex-direction:column; align-items: center; justify-content:space-evenly; padding:10px;">
+    <form action="/add_postagem" method="POST" style="display: flex; flex-direction:column; justify-content:space-around; width: 400px; height:400px; font-size: 16pt;margin-bottom:10px;">
+        <label>Titulo: </label>
+        <input type="text" name="titulo" placeholder="Digite o titulo da postagem" style="font-size:16pt; padding:5px;">
+        <label>Conteúdo: </label>
+        <textarea placeholder="Digite o conteúdo do texto..." style="height:150px; padding:5px; font-size:16pt;" name="conteudo"></textarea>
+        <button type="submit" style="height: 30px;">CADASTRAR POSTAGEM</button>
+    </form>
+    <table style="border-spacing: 10px;  width:50%;">
+        <thead>
+            <tr>
+                <th>TITULO</th>
+                <th>CONTEÚDO</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each posts}}
+                <tr style="text-align: center;">
+                    <td>{{titulo}}</td>
+                    <td><p style="height: 40px;">{{conteudo}}</p></td>
+                    <td><a style="text-decoration: none; padding:5px 10px; border:1px solid; background-color:rgb(201, 115, 36);border-radius: 3px; color:#ffff" href="/del_postagem/{{id}}">DELETAR</a></td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>
